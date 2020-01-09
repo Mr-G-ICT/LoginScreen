@@ -43,7 +43,6 @@ namespace LoginScreen___Game
 
                 objConnect.connection_string = ConnectionString;
 
-
                 MySQLString = "(((SELECT UserID, Firstname, Email FROM Users WHERE Users.Username = '" + Username + "' AND Users.Password = '" + Password + "'";
 
 
@@ -106,9 +105,6 @@ namespace LoginScreen___Game
         {
             string valueinTextbox;
             string errormessage = "";
-
-            string encryptedpassword = ValidationRoutines.encryptPassword(PasswordTextBox.Text);
-            MessageBox.Show(encryptedpassword);
 
             /* this links to the database connection and calls it object connection */
             DatabaseConnection objConnect;
@@ -182,12 +178,29 @@ namespace LoginScreen___Game
 
                 objConnect.connection_string = ConnectionString;
 
-                //Build function, encrypt password
+                //Generate the security code
+                string securitycode = "";
+                securitycode = ValidationRoutines.GenerateSecurityCode();
+                MessageBox.Show("the code is" + securitycode);
+                //NEXT STEPS
+                //generate an input box and lock out the rest of the screen
+                //keep locked until the input matches the security code
+                //not sure if this is agood idea, need to think of the user, but there are a lot of text boxes....may have to go back to layout
 
+                //send the confirmation email
+                EmailRoutines sendConfirmEmail;
+                sendConfirmEmail = new EmailRoutines();
+                sendConfirmEmail.GetUserEmail = EmailTextBox.Text;
+                sendConfirmEmail.sendConfirmationEmail();
+
+
+                //Build function, encrypt password
+                string passwordtoinsert = "";
+                passwordtoinsert = ValidationRoutines.encryptPassword(PasswordTextBox.Text);
 
                 //write code to get last userid and insert it into DB
-            //NOT YET FINISHED
-                    MySQLString = "INSERT INTO Users(Firstname, Username, UserPassword) VALUES ('" + FirstNameTextbox.Text + "' , '" + UsernameTextBox.Text + "', 'password')";
+                //NOT YET FINISHED
+                MySQLString = "INSERT INTO Users(Firstname, Username, UserPassword) VALUES ('" + FirstNameTextbox.Text + "' , '" + UsernameTextBox.Text + "', 'password')";
 
 
                     objConnect.SQL = ValidationRoutines.PreventInjection(MySQLString);

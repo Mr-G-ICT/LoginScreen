@@ -4,11 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace LoginScreen___Game
 {
     class ValidationRoutines
     {
-       
+       public static string GenerateSecurityCode()
+        {
+            /********************************************************
+            /*Name: GenerateSecurityCode
+            /*Description: generate a 6 digit security code
+            /*Inputs: none
+            /*OutputsP a string that contains the securty code. simple reason is it's easy to tack a number on a string and it 
+            /* plus user will enter the string
+            /*********************************************************/ 
+            string SecurityCode = "code is";
+            int GeneratedNum = 0;
+
+            Random Dice = new Random();
+
+            //generate a 6 digit unique code every time.
+            for(int count = 0; count < 6; count++)
+            {
+                GeneratedNum = Dice.Next(0, 9);
+                SecurityCode = SecurityCode + Convert.ToString(GeneratedNum);
+            }
+
+            return SecurityCode;
+        }
+
+
         public static string encryptPassword(string Password)
         {
             /******************************************************
@@ -163,13 +188,7 @@ namespace LoginScreen___Game
             return validemail;
         }
 
-        public static void sendConfirmationEmail()
-        {
-
-
-
-
-        }
+        
 
 
    public static string PreventInjection(string MySQLString)

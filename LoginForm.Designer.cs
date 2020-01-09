@@ -52,39 +52,35 @@
             // 
             this.UsernameLabel.AutoSize = true;
             this.UsernameLabel.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLabel.Location = new System.Drawing.Point(182, 50);
-            this.UsernameLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.UsernameLabel.Location = new System.Drawing.Point(77, 22);
             this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(235, 51);
+            this.UsernameLabel.Size = new System.Drawing.Size(103, 23);
             this.UsernameLabel.TabIndex = 0;
             this.UsernameLabel.Text = "Username";
             // 
             // UsernameTextBox
             // 
             this.UsernameTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameTextBox.Location = new System.Drawing.Point(435, 47);
-            this.UsernameTextBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.UsernameTextBox.Location = new System.Drawing.Point(183, 20);
             this.UsernameTextBox.Name = "UsernameTextBox";
-            this.UsernameTextBox.Size = new System.Drawing.Size(232, 60);
+            this.UsernameTextBox.Size = new System.Drawing.Size(100, 30);
             this.UsernameTextBox.TabIndex = 1;
             // 
             // PasswordTextBox
             // 
             this.PasswordTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTextBox.Location = new System.Drawing.Point(435, 155);
-            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.PasswordTextBox.Location = new System.Drawing.Point(183, 67);
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(232, 60);
+            this.PasswordTextBox.Size = new System.Drawing.Size(100, 30);
             this.PasswordTextBox.TabIndex = 3;
             // 
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
             this.PasswordLabel.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordLabel.Location = new System.Drawing.Point(197, 154);
-            this.PasswordLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.PasswordLabel.Location = new System.Drawing.Point(83, 67);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(220, 51);
+            this.PasswordLabel.Size = new System.Drawing.Size(96, 23);
             this.PasswordLabel.TabIndex = 2;
             this.PasswordLabel.Text = "Password";
             // 
@@ -98,10 +94,9 @@
             this.SigninButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.SigninButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.SigninButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SigninButton.Location = new System.Drawing.Point(817, 976);
-            this.SigninButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.SigninButton.Location = new System.Drawing.Point(344, 422);
             this.SigninButton.Name = "SigninButton";
-            this.SigninButton.Size = new System.Drawing.Size(330, 148);
+            this.SigninButton.Size = new System.Drawing.Size(139, 64);
             this.SigninButton.TabIndex = 4;
             this.SigninButton.Text = "Signin";
             this.SigninButton.UseVisualStyleBackColor = false;
@@ -110,10 +105,9 @@
             // NewUserButton
             // 
             this.NewUserButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewUserButton.Location = new System.Drawing.Point(1261, 976);
-            this.NewUserButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.NewUserButton.Location = new System.Drawing.Point(531, 422);
             this.NewUserButton.Name = "NewUserButton";
-            this.NewUserButton.Size = new System.Drawing.Size(330, 148);
+            this.NewUserButton.Size = new System.Drawing.Size(139, 64);
             this.NewUserButton.TabIndex = 5;
             this.NewUserButton.Text = "Sign up";
             this.NewUserButton.UseVisualStyleBackColor = true;
@@ -123,20 +117,18 @@
             // 
             this.ErrorLabel.AutoSize = true;
             this.ErrorLabel.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ErrorLabel.Location = new System.Drawing.Point(967, 120);
-            this.ErrorLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.ErrorLabel.Location = new System.Drawing.Point(674, 73);
             this.ErrorLabel.Name = "ErrorLabel";
-            this.ErrorLabel.Size = new System.Drawing.Size(112, 39);
+            this.ErrorLabel.Size = new System.Drawing.Size(52, 19);
             this.ErrorLabel.TabIndex = 6;
             this.ErrorLabel.Text = "label1";
             // 
             // FirstNameTextbox
             // 
             this.FirstNameTextbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstNameTextbox.Location = new System.Drawing.Point(435, 153);
-            this.FirstNameTextbox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.FirstNameTextbox.Location = new System.Drawing.Point(183, 66);
             this.FirstNameTextbox.Name = "FirstNameTextbox";
-            this.FirstNameTextbox.Size = new System.Drawing.Size(232, 60);
+            this.FirstNameTextbox.Size = new System.Drawing.Size(100, 30);
             this.FirstNameTextbox.TabIndex = 8;
             this.FirstNameTextbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -144,10 +136,9 @@
             // 
             this.FirstNameLabel.AutoSize = true;
             this.FirstNameLabel.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstNameLabel.Location = new System.Drawing.Point(159, 153);
-            this.FirstNameLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.FirstNameLabel.Location = new System.Drawing.Point(67, 66);
             this.FirstNameLabel.Name = "FirstNameLabel";
-            this.FirstNameLabel.Size = new System.Drawing.Size(224, 51);
+            this.FirstNameLabel.Size = new System.Drawing.Size(98, 23);
             this.FirstNameLabel.TabIndex = 7;
             this.FirstNameLabel.Text = "Firstname";
             // 
@@ -155,39 +146,35 @@
             // 
             this.ConfirmPasswordLabel.AutoSize = true;
             this.ConfirmPasswordLabel.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmPasswordLabel.Location = new System.Drawing.Point(19, 70);
-            this.ConfirmPasswordLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.ConfirmPasswordLabel.Location = new System.Drawing.Point(8, 30);
             this.ConfirmPasswordLabel.Name = "ConfirmPasswordLabel";
-            this.ConfirmPasswordLabel.Size = new System.Drawing.Size(398, 51);
+            this.ConfirmPasswordLabel.Size = new System.Drawing.Size(173, 23);
             this.ConfirmPasswordLabel.TabIndex = 9;
             this.ConfirmPasswordLabel.Text = "Confirm Password";
             // 
             // ConfirmPasswordTextBox
             // 
             this.ConfirmPasswordTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(435, 63);
-            this.ConfirmPasswordTextBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(183, 27);
             this.ConfirmPasswordTextBox.Name = "ConfirmPasswordTextBox";
-            this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(232, 60);
+            this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(100, 30);
             this.ConfirmPasswordTextBox.TabIndex = 10;
             // 
             // EmailTextBox
             // 
             this.EmailTextBox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailTextBox.Location = new System.Drawing.Point(435, 237);
-            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.EmailTextBox.Location = new System.Drawing.Point(183, 102);
             this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(232, 60);
+            this.EmailTextBox.Size = new System.Drawing.Size(100, 30);
             this.EmailTextBox.TabIndex = 11;
             // 
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
             this.EmailLabel.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailLabel.Location = new System.Drawing.Point(166, 237);
-            this.EmailLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.EmailLabel.Location = new System.Drawing.Point(70, 102);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(137, 51);
+            this.EmailLabel.Size = new System.Drawing.Size(61, 23);
             this.EmailLabel.TabIndex = 12;
             this.EmailLabel.Text = "Email";
             // 
@@ -200,21 +187,18 @@
             this.SignupGroup.Controls.Add(this.ConfirmPasswordLabel);
             this.SignupGroup.Controls.Add(this.FirstNameTextbox);
             this.SignupGroup.Controls.Add(this.FirstNameLabel);
-            this.SignupGroup.Location = new System.Drawing.Point(817, 409);
-            this.SignupGroup.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.SignupGroup.Location = new System.Drawing.Point(344, 177);
             this.SignupGroup.Name = "SignupGroup";
-            this.SignupGroup.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.SignupGroup.Size = new System.Drawing.Size(774, 553);
+            this.SignupGroup.Size = new System.Drawing.Size(326, 239);
             this.SignupGroup.TabIndex = 13;
             this.SignupGroup.TabStop = false;
             // 
             // SignUpFinalButton
             // 
             this.SignUpFinalButton.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignUpFinalButton.Location = new System.Drawing.Point(221, 442);
-            this.SignUpFinalButton.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.SignUpFinalButton.Location = new System.Drawing.Point(93, 191);
             this.SignUpFinalButton.Name = "SignUpFinalButton";
-            this.SignUpFinalButton.Size = new System.Drawing.Size(264, 67);
+            this.SignUpFinalButton.Size = new System.Drawing.Size(111, 29);
             this.SignUpFinalButton.TabIndex = 13;
             this.SignUpFinalButton.Text = "Sign Me Up!";
             this.SignUpFinalButton.UseVisualStyleBackColor = true;
@@ -226,23 +210,24 @@
             this.LoginGroup.Controls.Add(this.UsernameLabel);
             this.LoginGroup.Controls.Add(this.PasswordLabel);
             this.LoginGroup.Controls.Add(this.PasswordTextBox);
-            this.LoginGroup.Location = new System.Drawing.Point(817, 197);
+            this.LoginGroup.Location = new System.Drawing.Point(344, 85);
+            this.LoginGroup.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.LoginGroup.Name = "LoginGroup";
-            this.LoginGroup.Size = new System.Drawing.Size(774, 225);
+            this.LoginGroup.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.LoginGroup.Size = new System.Drawing.Size(326, 97);
             this.LoginGroup.TabIndex = 14;
             this.LoginGroup.TabStop = false;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2582, 2097);
+            this.ClientSize = new System.Drawing.Size(810, 456);
             this.Controls.Add(this.LoginGroup);
             this.Controls.Add(this.SignupGroup);
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.NewUserButton);
             this.Controls.Add(this.SigninButton);
-            this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.Name = "LoginForm";
             this.Text = "LoginScreen";
             this.Load += new System.EventHandler(this.LoginForm_Load);
