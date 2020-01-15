@@ -49,7 +49,34 @@ namespace LoginScreen___Game
             get { return InsertItemCode(); }
         }
 
-  
+
+        public string PreventInjection()
+        /*********************************************************************************
+        /* name: PreventInjection
+        /* routine to check for potential SQL injection, removing sequences before the SELECT, INSERT, DELETE statement*/
+        /* Inputs: an string of SQL
+        /* Outputs: a trimmed piece of SQL code
+        /* 
+        /* potential improvements: trim the end of the sentence the same way to remove the potential of crashes,
+        /* need to check mid sentences as well, as once SELECT has been used, shouldn't again
+        /****************************************************************************************************/
+        {
+            //trim off any leading spaces
+            sql_string.Trim();
+
+            char letter =sql_string[0];
+            //check each of the initial letters all SQL should start with SELECT, INSERT, DELETE
+            for (int count = 0; count < sql_string.Length - 1; count++)
+            {
+                letter = sql_string[count];
+                if (letter != 'S' && letter != 'I' && letter != 'D')
+                {
+                   sql_string = sql_string.TrimStart(letter);
+                }
+            }//endfor
+
+            return sql_string;
+        }
 
 
         /*this code uses the variables above i have set to establish the connection*/

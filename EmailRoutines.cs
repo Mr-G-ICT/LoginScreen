@@ -12,20 +12,41 @@ namespace LoginScreen___Game
     {
         string UserEmail;
         private static string HTMLstring;
+        private string WebsiteName = "Mrgristwood.com";
+
+        public string SetWebsiteName
+        {
+            set { WebsiteName = value; }
+        }
 
         public string GetUserEmail
         {
-            set{
-                UserEmail = value;
+            set{ UserEmail = value;  }
+        }
+
+        public string addtoHTML
+        {
+            set
+            {
+                HTMLstring = HTMLstring + value;
             }
         }
 
         //constructor for HTML string
         static EmailRoutines()
         {
-                HTMLstring = "<FONT> welcome to my email </FONT>";   
+            HTMLstring = "<FONT><h1> welcome to my email </h1> </FONT>";
+            HTMLstring = "<P>Thank you for signing up </p>";
+
+                //add any other content to the email you need here
+
+               
         }
 
+       
+            
+
+        
 
         public void sendConfirmationEmail()
         {
@@ -40,9 +61,9 @@ namespace LoginScreen___Game
             /****************************************************************/
 
             //replace this with the email you want to send it from. Obviously not using my own email address
-            const string FROMMAILADDRESS = "putyouremailhere";
-            const string WEBSITENAME = "test";
-            const string PASSWORDFOREMAILACCOUNT = "putyourpassowrdhere";
+            const string FROMMAILADDRESS = "put your email here";
+            const string PASSWORDFOREMAILACCOUNT = "put your passwordhere";
+            const string StaffMember = "BobSmith";
 
             //the contents of the email, when i get around to populating it.
             try
@@ -52,7 +73,9 @@ namespace LoginScreen___Game
                 message.From = new MailAddress(FROMMAILADDRESS);
                 message.To.Add(new MailAddress(UserEmail));
 
-                message.Subject = "welcome to " + WEBSITENAME;
+                message.Subject = "welcome to " + WebsiteName;
+                message.Subject = "<p> thanks</p> <p>" + StaffMember + "</p>";
+
                 message.IsBodyHtml = true; //to make message body as html  
                 message.Body = HTMLstring;
 

@@ -9,6 +9,28 @@ namespace LoginScreen___Game
 {
     class ValidationRoutines
     {
+        string UserPassword;
+        string UserEmail;
+        string SecondPassword;
+        
+        //don't like calling this password and second password as it limits 
+        //the potential use for the authenticaion of 2 piece of confirmation data
+        public string GetPassword
+        {
+            set { UserPassword = value; }
+        }
+
+        public string GetSecondPassword
+        {
+            set { SecondPassword = value; }
+        }
+
+        public string GetEmail
+        {
+            set { UserEmail = value;  }
+        }
+
+
        public static string GenerateSecurityCode()
         {
             /********************************************************
@@ -34,7 +56,7 @@ namespace LoginScreen___Game
         }
 
 
-        public static string encryptPassword(string Password)
+        public string encryptPassword()
         {
             /******************************************************
             /*name: Encrypt Password
@@ -52,7 +74,7 @@ namespace LoginScreen___Game
             int count = 0 ;
 
             //simple cypher with a AlphaKey, going to extend this to a greater key encryption later.
-            foreach (char letter in Password.ToCharArray())
+            foreach (char letter in UserPassword.ToCharArray())
             {
                 ASCIIValue = (int)letter;
 
@@ -60,7 +82,6 @@ namespace LoginScreen___Game
                 { 
                 letterkey = CharKey[count];
                     KeyASCIIValue = (int)letterkey;
-                    KeyASCIIValue = KeyASCIIValue;
                     KeyASCIIValue = KeyASCIIValue % NUMKEY;
 
                     ASCIIValue = ASCIIValue + KeyASCIIValue;
@@ -81,7 +102,7 @@ namespace LoginScreen___Game
             return encryptedPassword;
         }
 
-        public static string checkpassword(string Password) 
+        public string checkpassword() 
         {
             /******************************************************
             /*name: Check Password
@@ -98,7 +119,7 @@ namespace LoginScreen___Game
             //roll through each of the special characters
             foreach (var symbol in specialChar)
             {
-                if (Password.Contains(symbol))
+                if (UserPassword.Contains(symbol))
                 {
                     //remove the error message
                     response = "";
@@ -107,12 +128,12 @@ namespace LoginScreen___Game
             }
 
             //using the passwords all command rather than regex as it's faster on CPU comparison
-            if (!Password.All(char.IsLetter))
+            if (UserPassword.All(char.IsLetter))
                 {
                 response = response + " letter";
             }
             //check that there is a digit in the password, if not then add the error to the code.
-            if(!Password.All(char.IsDigit))
+            if(UserPassword.All(char.IsDigit))
             {
                 response = response + " and number";
             }
@@ -136,7 +157,7 @@ namespace LoginScreen___Game
     }
 
 
-        public static bool VerifyData(string data1, string data2)
+        public bool VerifyData()
         {
         /******************************************************/
         /*name: Verify Data
@@ -145,7 +166,7 @@ namespace LoginScreen___Game
         /*Outputs: true/false depending on matching or not
         /* Possible improvements: could build in the trim function 
         /*********************************************************/    
-            if (data1 == data2)
+            if (SecondPassword == UserPassword)
             {
                 return true;
                 
@@ -155,7 +176,7 @@ namespace LoginScreen___Game
             }
         }
 
-        public static bool VerifyEmail(string Email)
+        public bool VerifyEmail()
         {
             /******************************************************
             /*name: VerifyEmail
@@ -170,15 +191,15 @@ namespace LoginScreen___Game
             int GetPositionOfDot = 0;
             bool validemail = false;
 
-            GetPositionOfAt = Email.IndexOf("@");
-            GetPositionOfDot = Email.LastIndexOf(".");
-
+            GetPositionOfAt = UserEmail.IndexOf('@');
+            GetPositionOfDot = UserEmail.LastIndexOf('.');
             //check it has all the valid email contents
-            if ((GetPositionOfAt > 0) && (GetPositionOfDot > 0) && Email.Length > 0)
+            
+           if ((GetPositionOfAt > 0) && (GetPositionOfDot > 0) && (UserEmail.Length > 0))
             {
                 validemail = true;
             }
-            if (GetPositionOfDot > GetPositionOfAt)
+           if (GetPositionOfDot < GetPositionOfAt)
             {
                 validemail = true;
             }
@@ -191,37 +212,6 @@ namespace LoginScreen___Game
         
 
 
-   public static string PreventInjection(string MySQLString)
-       /*********************************************************************************
-       /* name: PreventInjection
-       /* routine to check for potential SQL injection, removing sequences before the SELECT, INSERT, DELETE statement*/
-       /* Inputs: an string of SQL
-       /* Outputs: a trimmed piece of SQL code
-       /* 
-       /* potential improvements: trim the end of the sentence the same way to remove the potential of crashes,
-       /* need to check mid sentences as well, as once SELECT has been used, shouldn't again
-       /****************************************************************************************************/
-        {
-           //trim off any leading spaces
-            MySQLString.Trim();
-
-
-            char letter = MySQLString[0];
-            //check each of the initial letters all SQL should start with SELECT, INSERT, DELETE
-            for (int count = 0; count < MySQLString.Length - 1; count++)
-            {
-                letter = MySQLString[count];
-                if (letter != 'S' && letter != 'I' && letter != 'D')
-                {
-                   MySQLString =  MySQLString.TrimStart(letter);
-
-
-                }
-              
-            }//endfor
-
-            return MySQLString;
-        }
 
 
     }

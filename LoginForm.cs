@@ -12,6 +12,9 @@ namespace LoginScreen___Game
 {
     public partial class LoginForm : Form
     {
+        //set up the name of the project will read "welcome to, projectname"
+        const string PROJECTNAME = "MRGLOGIN";
+
         public LoginForm()
         {
             InitializeComponent();
@@ -45,8 +48,8 @@ namespace LoginScreen___Game
 
                 MySQLString = "(((SELECT UserID, Firstname, Email FROM Users WHERE Users.Username = '" + Username + "' AND Users.Password = '" + Password + "'";
 
-
-                objConnect.SQL = ValidationRoutines.PreventInjection(MySQLString);
+                objConnect.SQL = MySQLString;
+                objConnect.SQL = objConnect.PreventInjection();
 
 
 
@@ -92,7 +95,10 @@ namespace LoginScreen___Game
         private void LoginForm_Load(object sender, EventArgs e)
         {
             SignupGroup.Hide();
-
+            //i like century gothic, change font face and size to suit
+            ProjectNameLabel.Font = new Font("Century Gothic", 18);
+                
+            ProjectNameLabel.Text = ProjectNameLabel.Text + PROJECTNAME;
         }
 
         private void NewUserButton_Click(object sender, EventArgs e)
@@ -121,10 +127,11 @@ namespace LoginScreen___Game
                     valueinTextbox = control.Text;
                     if (valueinTextbox == "")
                     {
-                        string textboxname = control.Name.Replace("textBox", "");
+
+                        string textboxname = control.Name.Replace("TextBox", " ");
                         errormessage = errormessage + textboxname + "is missing a value, please try again";
                     }
-
+                    errormessage = errormessage + "\n\n";
                 }
             }
 
@@ -138,35 +145,47 @@ namespace LoginScreen___Game
                     if (valueinTextbox == "")
                     {
                         string textboxname = control.Name.Replace("textBox", "");
-                        errormessage = errormessage + textboxname + " is missing a value, please try again\n";
+                        errormessage = errormessage + textboxname + " is missing a value, please try again";
                     }
+                    //add this every time so errors appear in line
+                    errormessage = errormessage + "\n\n";
 
                 }
             }
 
+            //set up the class for the validationroutines
+            ValidationRoutines CheckDataEntry = new ValidationRoutines();
+            //Build function, encrypt password
+            CheckDataEntry.GetPassword = PasswordTextBox.Text;
+            CheckDataEntry.GetSecondPassword = ConfirmPasswordTextBox.Text;
+            CheckDataEntry.GetEmail = EmailTextBox.Text;
+
             // verify password
-            if (!ValidationRoutines.VerifyData(PasswordTextBox.Text, ConfirmPasswordTextBox.Text))
+            if (!CheckDataEntry.VerifyData())
             {
                 errormessage = errormessage + "\n passwords do not match";
             }
             else
             {
-                errormessage = errormessage + ValidationRoutines.checkpassword(PasswordTextBox.Text);
+                errormessage = errormessage + CheckDataEntry.checkpassword();
             }
 
             //call validation routine to check an email.
-            if(ValidationRoutines.VerifyEmail(EmailTextBox.Text))
+            if(!CheckDataEntry.VerifyEmail())
             {
                errormessage = errormessage + "\n email is not valid";
             }
 
-          
-
+            //strip out the layout spaces
+            errormessage = errormessage.Replace("\n", "");
             //final check to display the message onto the screen
             if (errormessage != "")
             {
-                ErrorLabel.Text = "ERROR \n\n" + errormessage;
+                ErrorLabel.Font = new Font("Century Gothic", 11);
+                ErrorLabel.ForeColor = System.Drawing.Color.Red;
+                ErrorLabel.Text =  errormessage;
             }
+            
             else if (errormessage == "")
             {
                 MessageBox.Show("no errors add to database");
@@ -190,22 +209,23 @@ namespace LoginScreen___Game
                 //send the confirmation email
                 EmailRoutines sendConfirmEmail;
                 sendConfirmEmail = new EmailRoutines();
+                sendConfirmEmail.SetWebsiteName = PROJECTNAME;
                 sendConfirmEmail.GetUserEmail = EmailTextBox.Text;
+                //put the signin code into their email 
+                sendConfirmEmail.addtoHTML = "<p>your signin code is " + securitycode + "</p>";
                 sendConfirmEmail.sendConfirmationEmail();
 
 
-                //Build function, encrypt password
-                string passwordtoinsert = "";
-                passwordtoinsert = ValidationRoutines.encryptPassword(PasswordTextBox.Text);
+
+                string passwordtoinsert = CheckDataEntry.encryptPassword();
 
                 //write code to get last userid and insert it into DB
-                //NOT YET FINISHED
-                MySQLString = "INSERT INTO Users(Firstname, Username, UserPassword) VALUES ('" + FirstNameTextbox.Text + "' , '" + UsernameTextBox.Text + "', 'password')";
+                MySQLString = "INSERT INTO Users(Firstname, Username, UserPassword, Email) VALUES ('" + FirstNameTextbox.Text + "' , '" + UsernameTextBox.Text + "', ' " + passwordtoinsert + "', ' "+ EmailTextBox.Text + "')";
 
+                objConnect.SQL = MySQLString;
+                objConnect.SQL = objConnect.PreventInjection();
 
-                    objConnect.SQL = ValidationRoutines.PreventInjection(MySQLString);
-
-                    MessageBox.Show(objConnect.InsertItem);
+                MessageBox.Show(objConnect.InsertItem);
             }
 
         }
