@@ -38,7 +38,11 @@ namespace LoginScreen___Game
 
                 objConnect.connection_string = ConnectionString;
 
-                MySQLString = "(((SELECT UserID, Firstname, Email FROM Users WHERE Username = '" + UsernameTextBox.Text + "' AND UserPassword = '" + PasswordTextBox.Text + "'";
+
+                //to do, test this validation routine for encryptedpassword
+                ValidationRoutines CheckDataEntry = new ValidationRoutines();
+                CheckDataEntry.GetPassword = PasswordTextBox.Text;
+                MySQLString = "(((SELECT UserID, Firstname, Email FROM Users WHERE Username = '" + UsernameTextBox.Text + "' AND UserPassword = '" + CheckDataEntry.encryptPassword() + "'";
 
                 objConnect.SQL = MySQLString;
                 objConnect.SQL = objConnect.PreventInjection();
