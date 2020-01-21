@@ -6,25 +6,51 @@ using System.Threading.Tasks;
 
 namespace LoginScreen___Game
 {
-    class ProfileRoutines
+    public class ProfileRoutines
     {
-        public struct UserProfile
+
+        private struct UserProfile
         {
-            public string Username;
+            public int UserID;
+            public string Firstname;
+           public string Username;
             public string email;
-            
+            public string Password;
         };
 
-        public static void SetupProfile(string username, string email )
+        private UserProfile SingleUser;
+
+
+        public int GetUserID
         {
-            UserProfile SingleUser;
-
-            SingleUser.Username = username;
-            SingleUser.email = email;
-
-            // build something in here to get the rest of the data from the database and store it in the struct
-
+            get { return SingleUser.UserID; }
+            set { SingleUser.UserID = value; }
         }
+
+        public string GetFirstname
+        {
+            get { return SingleUser.Firstname; }
+            set { SingleUser.Firstname = value; }
+        }
+
+        public string GetUsername
+        {
+            get { return SingleUser.Username; }
+            set { SingleUser.Username = value; }
+        }
+
+        public string GetEmail
+        {
+            get { return SingleUser.Username; }
+            set { SingleUser.email = value; }
+        }
+
+        public string GetPW
+        {
+            get { return SingleUser.Password; }
+            set { SingleUser.email = value; }
+        }
+
 
     }
 }

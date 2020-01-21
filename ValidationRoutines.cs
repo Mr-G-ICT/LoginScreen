@@ -40,7 +40,7 @@ namespace LoginScreen___Game
             /*OutputsP a string that contains the securty code. simple reason is it's easy to tack a number on a string and it 
             /* plus user will enter the string
             /*********************************************************/ 
-            string SecurityCode = "code is";
+            string SecurityCode = "";
             int GeneratedNum = 0;
 
             Random Dice = new Random();
