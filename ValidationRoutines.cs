@@ -31,7 +31,7 @@ namespace LoginScreen___Game
         }
 
 
-       public static string GenerateSecurityCode()
+       public string GenerateSecurityCode()
         {
             /********************************************************
             /*Name: GenerateSecurityCode
@@ -42,17 +42,69 @@ namespace LoginScreen___Game
             /*********************************************************/ 
             string SecurityCode = "";
             int GeneratedNum = 0;
+            const int NUMDIGITS = 7;
 
             Random Dice = new Random();
 
             //generate a 6 digit unique code every time.
-            for(int count = 0; count < 6; count++)
+            for(int count = 0; count < NUMDIGITS; count++)
             {
                 GeneratedNum = Dice.Next(0, 9);
                 SecurityCode = SecurityCode + Convert.ToString(GeneratedNum);
             }
 
             return SecurityCode;
+        }
+
+        public string GeneratePassword()
+        {
+            /**************************************************************/
+            /* Name: GeneratePassword
+            /* Description: Generates a randompassword based on criteria at top of page
+            /* INputs: none
+            /* Outputs: a new password string
+            /*************************************************************/
+            const int PASSWORDLENGTH = 15;
+            string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+            string newPassword = "";
+
+            Random dice = new Random();
+
+
+            for (int count = 1; count <= PASSWORDLENGTH; count++)
+            {
+                //goes from 1 - 5 because C# needs one more than the upper bound to recognise 4
+                int diceRoll = dice.Next(1, 5);
+
+                //work out what digit is to be generated
+                switch (diceRoll)
+                {
+                    case (1):
+                        //use ASCII to generate the uppercase letter
+                        diceRoll = dice.Next(65, 91);
+                        newPassword = newPassword + Convert.ToChar(diceRoll);
+                        break;
+                    case (2):
+                        //use ASCII to generate the lowercase letter
+                        diceRoll = dice.Next(97, 123);
+                        newPassword = newPassword + Convert.ToChar(diceRoll);
+
+                        break;
+                    case (3):
+                        //generate Num
+                        diceRoll = dice.Next(0, 10);
+                        newPassword = newPassword + Convert.ToString(diceRoll);
+                        break;
+
+                    case (4):
+                        //generate Symbol
+                        diceRoll = dice.Next(0, specialChar.Length);
+                        newPassword = newPassword + specialChar[diceRoll];
+                        break;
+
+                }
+            }
+            return newPassword;
         }
 
 
